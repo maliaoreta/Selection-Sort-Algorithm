@@ -1,15 +1,26 @@
 function selectionSort (arr) {
 
-  for (var i = 0; i < arr.length-1; i++) {
+  for (var i = 0; i < arr.length; i++) {
 
-    for (var k = 1; k < arr.length; k++) {
+    var curr = arr[i];
 
-      var curr = arr[i];
+    for (var k = i+1; k < arr.length; k++) {
+
       var next = arr[k];
-    
+      
+      if (curr > next) {
+
+        curr = next;
+      }
+
+      if (k === arr.length-1) {
+        
+        arr[arr.indexOf(curr)] = arr[i];
+        arr[i] = curr;
+      }
     }
   }
-
+  
   return arr;
 }
 
